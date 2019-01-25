@@ -36,3 +36,14 @@ export function addSchool(req, res) {
     });
   });
 }
+
+export function getSchools(req, res) {
+  School.findOne()
+    .exec((err, schools) => {
+      if (err) {
+        res.status(500)
+          .send(err);
+      }
+      res.json(schools);
+    });
+}
